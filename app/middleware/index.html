@@ -1560,7 +1560,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../marketing/utils/" title="Utilities" class="md-nav__link">
+    <a href="../../marketing/utils.md" title="Utilities" class="md-nav__link">
       Utilities
     </a>
   </li>
@@ -1831,22 +1831,23 @@
                 
                 <h1 id="app.middleware">app.middleware</h1>
 
-<h2 id="app.middleware.drop_accept_langauge">drop_accept_langauge</h2>
+<h2 id="app.middleware.drop_accept_language">drop_accept_language</h2>
 
-<pre><code class="python">drop_accept_langauge(get_response)
+<pre><code class="python">drop_accept_language(get_response)
 </code></pre>
 
 <p>Define the middleware to remove accept-language headers from requests.</p>
 <p>This middleware is essentially a hack to allow us to continue to use the
 standard Django LocaleMiddleware without modification, but simply disable
 the autodetection aspect based on the Accept-Language header.</p>
-<h2 id="app.middleware.bleach_requests">bleach_requests</h2>
+<h2 id="app.middleware.drop_recaptcha_post">drop_recaptcha_post</h2>
 
-<pre><code class="python">bleach_requests(get_response)
+<pre><code class="python">drop_recaptcha_post(get_response)
 </code></pre>
 
-<p>This middleware uses the bleach library to sanitize incoming requests to
-prevent XSS and injection attacks</p>
+<p>Define middleware to alter the request to act as a GET if the post data contains g-recaptcha-response</p>
+<p>This middleware allows us to ignore subsequent recaptcha submissions if the user has already passed
+the recaptcha in a different window.</p>
                 
                   
                 
